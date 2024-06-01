@@ -121,6 +121,8 @@ class ConfigApp(ft.UserControl):
                 self.tla_controls[tla].set_type(action_value)
             elif action_operator == "BNT":
                 self.tla_controls[tla].update_button_text(action_value)
+            elif action_operator == "CLR":
+                self.tla_controls[tla].update_value_colour(action_value)
         elif operator == '%':
             pass
         else:

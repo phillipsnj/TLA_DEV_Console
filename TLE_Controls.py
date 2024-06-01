@@ -57,6 +57,11 @@ class Widget(ft.Row):
         self.display_value.value = value
         self.update()
 
+    def update_value_colour(self, value):
+        print(f'Update Value Colour {self.name}, {value}')
+        self.display_value.color = value
+        self.update()
+
     def update_inc(self, value):
         print(f'Update Increment {self.name} {value}')
         self.inc = value
@@ -187,6 +192,11 @@ class Widget2(ft.Card):
     def update_value(self, value):
         print(f'Update Value {self.name} {value}')
         self.display_value.value = value
+        self.update()
+
+    def update_value_colour(self, value):
+        print(f'Update Value Colour {self.name}, {value}')
+        self.display_value.color = value
         self.update()
 
     def update_inc(self, value):
