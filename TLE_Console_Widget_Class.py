@@ -1,6 +1,6 @@
 import flet as ft
 import solo_uart
-from TLE_Controls import Widget, Widget2
+from TLE_Controls import Widget2
 
 
 class ConfigApp(ft.UserControl):
