@@ -15,7 +15,7 @@ class Widget(ft.Row):
         self.inc_plus_button = ft.FilledTonalButton(text=f"+{self.inc}", on_click=self.send_inc_add, visible=False)
         self.minus_button = ft.FilledTonalButton(text="-", on_click=self.send_minus, visible=False)
         self.plus_button = ft.FilledTonalButton(text="+", on_click=self.send_add, visible=False)
-        self.display_value = ft.Text(self.value, color="pink600", visible=False)
+        self.display_value = ft.Text(self.value, color="pink600", visible=True)
         self.display_label = ft.Text(self.name, color="green600", visible=False)
         self.controls = [
             self.command_button,
@@ -108,7 +108,7 @@ class Widget2(ft.Card):
         self.display_value = ft.Text(
             value,
             color="pink600",
-            theme_style=ft.TextThemeStyle.HEADLINE_MEDIUM,
+            theme_style=ft.TextThemeStyle.BODY_SMALL
             # bgcolor="blue600"
         )
         self.inc_minus_button = ft.FilledTonalButton(text=f"-{self.inc}", on_click=self.send_inc_minus, visible=False)
@@ -119,13 +119,13 @@ class Widget2(ft.Card):
             title=ft.Text(name, color="black600", theme_style=ft.TextThemeStyle.BODY_SMALL, visible=True),
             subtitle=ft.Text("", color="black600", theme_style=ft.TextThemeStyle.BODY_SMALL, visible=False),
             dense=True,
-            visible=False,
+            visible=True,
         )
         self.value = ft.Row(
             [self.display_value],
             alignment=ft.MainAxisAlignment.CENTER,
             vertical_alignment=ft.CrossAxisAlignment.START,
-            visible=False,
+            visible=True,
             spacing=0
         )
         self.actions = ft.Row(
@@ -171,6 +171,8 @@ class Widget2(ft.Card):
             return
 
         if widget_type == 'COMMAND':
+            self.value.visible = False
+            self.title.visible = False
             self.command_button.visible = True
             self.actions.controls = [self.command_button]
             self.actions.visible = True

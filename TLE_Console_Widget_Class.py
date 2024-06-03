@@ -134,6 +134,8 @@ class ConfigApp(ft.UserControl):
             print(f'Create Literal {tla}')
             self.tla_controls[tla] = Widget2(tla, value, self.on_click_send_tla)
             self.controls_list.controls.append(self.tla_controls[tla])
+            self.tla_controls[tla].display_value.visible = True
+            self.update()
 
     def process_output(self, e):
         print("outgoing msg : " + str(self.user_message.value))
