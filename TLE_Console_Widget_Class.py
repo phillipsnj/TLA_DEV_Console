@@ -124,7 +124,7 @@ class ConfigApp(ft.UserControl):
             elif action_operator == "CLR":
                 self.tla_controls[tla].update_value_colour(action_value)
         elif operator == '%':
-            pass
+            self.tla_controls[tla].update_button_text(value)
         else:
             pass
 
@@ -142,6 +142,13 @@ class ConfigApp(ft.UserControl):
             self.controls_list.controls.append(self.tla_controls[tla])
             self.update()
             self.tla_controls[tla].set_type("LITERAL")
+        elif operator == '%':
+            print(f'Create Command {tla}')
+            self.tla_controls[tla] = Widget2(tla, value, self.on_click_send_tla)
+            self.controls_list.controls.append(self.tla_controls[tla])
+            self.update()
+            self.tla_controls[tla].set_type("COMMAND")
+            self.tla_controls[tla].update_button_text(value)
 
     def process_output(self, e):
         print("outgoing msg : " + str(self.user_message.value))
