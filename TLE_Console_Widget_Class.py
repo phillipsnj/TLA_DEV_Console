@@ -131,11 +131,17 @@ class ConfigApp(ft.UserControl):
     def create_control(self, tla, operator, value):
         print(f'Create Control {tla} {operator} {value}')
         if operator == '=':
+            print(f'Create Variable {tla}')
+            self.tla_controls[tla] = Widget2(tla, value, self.on_click_send_tla)
+            self.controls_list.controls.append(self.tla_controls[tla])
+            self.update()
+            self.tla_controls[tla].set_type("VARIABLE")
+        elif operator == '~':
             print(f'Create Literal {tla}')
             self.tla_controls[tla] = Widget2(tla, value, self.on_click_send_tla)
             self.controls_list.controls.append(self.tla_controls[tla])
-            self.tla_controls[tla].display_value.visible = True
             self.update()
+            self.tla_controls[tla].set_type("LITERAL")
 
     def process_output(self, e):
         print("outgoing msg : " + str(self.user_message.value))

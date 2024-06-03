@@ -27,7 +27,7 @@ class SoloUART(threading.Thread):
                 self.function(data)
                 print("Data : "+data)
             time.sleep(.001)
-            count +=1
+            count += 1
             # print(self.ser.inWaiting())
 
     def send(self, data):
