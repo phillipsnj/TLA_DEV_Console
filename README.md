@@ -6,9 +6,11 @@ INF - sent to device to request Information
 
 Each field is identified by a Three letter Abbreviation
 
-> = Sets the value
+> = Sets as a value
 
-> : Sets an option
+> % sets as a Command (Value will appear as text on button)
+
+> ~ Sets as a Literal
 
 Options
 
