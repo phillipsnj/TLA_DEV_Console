@@ -23,3 +23,7 @@ BNT - Name on the Command Button
 INC - Adds additional button with larger increment values.
 
 CLR - Value Text Colour.
+
+SUB - Set Sub Title.
+
+CST - Clear Sub Title.

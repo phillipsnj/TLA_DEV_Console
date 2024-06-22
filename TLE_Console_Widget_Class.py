@@ -11,6 +11,7 @@ class ConfigApp(ft.UserControl):
         self.tla_controls = {}
         self.controls_list = ft.ListView(expand=1, spacing=5, padding=10, auto_scroll=True)
         self.messages_list = ft.ListView(expand=1, spacing=5, padding=10, auto_scroll=True)
+        self.text_output = ft.Text()
         self.refresh_button = ft.FilledButton(
             text="Refresh",
             on_click=self.refresh_screen
@@ -62,6 +63,15 @@ class ConfigApp(ft.UserControl):
             bgcolor=ft.colors.WHITE,
             border_radius=10,
         )
+        self.text_view = ft.Container(
+            width=350,
+            height=380,
+            content=self.text_output,
+            margin=10,
+            padding=10,
+            bgcolor=ft.colors.WHITE,
+            border_radius=10,
+        )
         self.message_action = ft.Container(
             width=350,
             height=60,
@@ -83,6 +93,7 @@ class ConfigApp(ft.UserControl):
                 ft.Column(
                     controls=[
                         self.message_view,
+                        # self.text_view,
                         self.message_action,
                     ]),
             ])
@@ -114,7 +125,11 @@ class ConfigApp(ft.UserControl):
             action_operator = value[:3]
             action_value = value[4:]
             if action_operator == "CNM":
-                self.tla_controls[tla].update_text(action_value)
+                self.tla_controls[tla].update_title(action_value)
+            elif action_operator == "SUB":
+                self.tla_controls[tla].update_subtitle(action_value)
+            elif action_operator == "CST":
+                self.tla_controls[tla].clear_subtitle()
             elif action_operator == "INC":
                 self.tla_controls[tla].update_inc(action_value)
             elif action_operator == "TYP":

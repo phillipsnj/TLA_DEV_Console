@@ -43,14 +43,10 @@ class Widget2(ft.Card):
         self.content = ft.Container(
             content=ft.Column(
                 [
-                    # self.command_button,
                     self.title,
-                    # self.inc_minus_button,
-                    # self.minus_button,
+                    # self.subtitle,
                     self.value,
                     self.actions
-                    # self.plus_button,
-                    # self.inc_plus_button
                 ],
                 horizontal_alignment=ft.CrossAxisAlignment.START,
                 spacing=0
@@ -90,10 +86,22 @@ class Widget2(ft.Card):
             self.display_value.theme_style = ft.TextThemeStyle.BODY_MEDIUM
             self.update()
 
-    def update_text(self, value):
+    def update_title(self, value):
         print(f'Update {self.name} {value}')
         self.title.title.value = value
         self.display_label.value = value
+        self.update()
+
+    def update_subtitle(self, value):
+        print(f'Update Sub Title')
+        self.title.subtitle.value = value
+        self.title.subtitle.visible = True
+        self.display_label.value = value
+        self.update()
+
+    def clear_subtitle(self):
+        print(f'Clear Sub Title')
+        self.title.subtitle.visible = False
         self.update()
 
     def update_value(self, value):
